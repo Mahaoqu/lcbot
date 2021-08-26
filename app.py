@@ -1,5 +1,4 @@
 import logging
-import os
 import re
 
 from slack_bolt import App
@@ -17,7 +16,7 @@ app = App(
 
 
 @app.error
-def handle_error(error, body, logger, say):
+def handle_error(error, logger):
     logger.error(error)
     # say(f'Sorry, your request is failed beacuse of {error}')
 
@@ -34,8 +33,9 @@ check_int_format = re.compile("#(\d+)")
 
 
 @app.event("app_mention")
-def handle_app_mentions(logger, payload, body, say):
+def handle_app_mentions(logger, payload, say):
     try:
+        # https://api.slack.com/events/app_mention
         msg = payload["text"]
         uid = payload["user"]
         if '签到' in msg or 'check-in' in msg:

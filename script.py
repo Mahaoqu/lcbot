@@ -4,9 +4,9 @@ from data import Problem
 greeting = 'Hello {}! '
 submit = 'You have checked-in a leetcode problem <{}|#{} {}>. '
 
-submit_easy = 'Good job! '
-submit_medium = 'You have accomplished a feat! '
-submit_hard = "I can't believe you finally did it! "
+submit_easy = '🟢 Good job! '
+submit_medium = '🟡 You have accomplished a feat! '
+submit_hard = "🔴 I can't believe you finally did it! "
 
 submit_after = 'Can any else do that?'
 submit_first_of_day = ''
