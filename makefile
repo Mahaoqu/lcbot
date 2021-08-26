@@ -4,9 +4,9 @@ PACKAGE_NAME=slack-lcbot-package.zip
 FUNCTION_NAME=slack-lcbot
 
 deploy: 
-	pip install --target ./build -r requirements.txt
+	pip install --target ./build --no-deps -r requirements.txt
 	cd build; zip -r ../${PACKAGE_NAME} .
-	zip -g ${PACKAGE_NAME} *.py
+	zip -g ${PACKAGE_NAME} *.py pb.csv
 	aws lambda update-function-code --function-name ${FUNCTION_NAME} \
 		--zip-file fileb://${PACKAGE_NAME} --no-cli-pager
 	aws lambda update-function-configuration --function-name ${FUNCTION_NAME} \
