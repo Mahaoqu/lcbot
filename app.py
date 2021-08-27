@@ -29,8 +29,6 @@ def log_request(logger, body, next):
 
 check_int_format = re.compile("#(\d+)")
 
-# metion: for check-in and more
-
 
 @app.event("app_mention")
 def handle_app_mentions(logger, payload, say):
@@ -65,18 +63,6 @@ def handle_check_in(uid, msg, say):
 
 def handle_reovke_last_check_in(uid, pid):
     pass
-
-
-@app.message("test")
-def reply_to_test(message, say):
-    u = message["user"]
-    name = get_user_mentioned(u)
-    say(f"Good test, {name}. I know you REAL name now.")
-
-
-@app.message(re.compile("bug"))
-def mention_bug(say):
-    say("Do you mind filing a ticket?")
 
 
 SlackRequestHandler.clear_all_log_handlers()
