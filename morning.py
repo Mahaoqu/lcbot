@@ -46,7 +46,7 @@ def score_of_problems(p: List[Problem]):
 
 def greeting_script(rs) -> str:
     if(len(rs) == 0):
-        return "Nobody done a leetcode problems yesterday. We have to work hard today!"
+        return "Nobody done a leetcode problem yesterday. We have to work hard today!"
 
     us = {}
     for (uid, pid, _) in rs:
@@ -74,7 +74,7 @@ def greeting_script(rs) -> str:
             u,
             len(problems))
 
-        not_easy_number = sum([i != 'Easy' for i in problems])
+        not_easy_number = sum([i.difficulty != 'Easy' for i in problems])
         if not_easy_number > 0:
             msg += " and {} of them are medium difficutly above.".format(
                 not_easy_number)
